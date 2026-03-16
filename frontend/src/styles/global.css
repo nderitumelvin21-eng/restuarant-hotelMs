@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxury Theme Variables */
+:root {
+  --color-dark: #0f0e1a;
+  --color-gold: #d4af37;
+  --color-accent: #1e3a8a;
+  --color-light: #f5f5f5;
+  --color-text: #e0e0e0;
+}
+
+body {
+  @apply bg-luxury-dark text-luxury-light;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  @apply relative h-96 bg-cover bg-center flex items-center justify-center;
+  background: linear-gradient(135deg, #0f0e1a 0%, #1e3a8a 100%);
+}
+
+.hero-content {
+  @apply text-center z-10;
+}
+
+.hero-title {
+  @apply text-5xl font-bold text-luxury-gold mb-4 font-serif;
+  text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Cards */
+.card {
+  @apply bg-gray-900 border border-luxury-gold rounded-lg p-6 hover:shadow-lg transition-all duration-300;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.card-image {
+  @apply w-full h-48 object-cover rounded-lg mb-4;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-luxury-gold text-luxury-dark font-bold py-3 px-8 rounded-lg hover:bg-yellow-500 transition-all;
+}
+
+.btn-secondary {
+  @apply bg-luxury-accent text-luxury-light font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-all;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-700 transition-all;
+}
+
+/* Navigation */
+.navbar {
+  @apply bg-luxury-dark border-b border-luxury-gold fixed w-full top-0 z-50;
+  box-shadow: 0 2px 20px rgba(212, 175, 55, 0.2);
+}
+
+.nav-link {
+  @apply text-luxury-light hover:text-luxury-gold transition-colors;
+}
+
+/* Tables POS */
+.table-grid {
+  @apply grid gap-4;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.table-item {
+  @apply p-4 rounded-lg border-2 cursor-pointer transition-all;
+  border-color: var(--color-gold);
+}
+
+.table-item.free {
+  @apply bg-green-900 bg-opacity-20 hover:bg-opacity-40;
+}
+
+.table-item.occupied {
+  @apply bg-red-900 bg-opacity-20;
+}
+
+.table-item.reserved {
+  @apply bg-blue-900 bg-opacity-20;
+}
+
+.table-item.cleaning {
+  @apply bg-yellow-900 bg-opacity-20;
+}
+
+/* Kitchen Display */
+.kitchen-display {
+  @apply grid gap-4;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.order-ticket {
+  @apply bg-gray-800 border-2 border-luxury-gold rounded-lg p-4 relative;
+}
+
+.order-status-badge {
+  @apply inline-block px-3 py-1 rounded-full text-sm font-bold mb-2;
+}
+
+.status-pending {
+  @apply bg-red-600;
+}
+
+.status-preparing {
+  @apply bg-yellow-600;
+}
+
+.status-ready {
+  @apply bg-green-600;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.animate-pulse-gold {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    @apply text-3xl;
+  }
+
+  .table-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .kitchen-display {
+    grid-template-columns: 1fr;
+  }
+}
